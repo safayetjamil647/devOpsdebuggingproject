@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    container_name: my-frontend
+    ports:
+      - "3000:3000"  # Map host port 3001 to container port 3001 (or your desired port)
+    networks:
+      - my-network
+
+  nestjs-app:
+    build:
+      context: ./backend
+    container_name: my-backend-app
+    ports:
+      - "3001:3001"  # Map host port 3001 to container port 3001
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge  # You can use a different network driver if needed
+
+networks:
+  my-network:
+    driver: bridge
+
