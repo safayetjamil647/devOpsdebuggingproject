@@ -20,5 +20,5 @@ jobs:
         working-directory: ./frontend
         run: |
           docker build -t fronted:latest .
-          docker tag my-docker-image:latest ${{ secrets.DOCKERHUB_USERNAME }}/my-docker-image:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-docker-image:latest
+          docker tag frontend:latest ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
