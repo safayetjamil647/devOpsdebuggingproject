@@ -1,0 +1,22 @@
+# Use the official Node.js image with version 12.13.0 as the base image
+FROM node:12.13.0
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY ./package*.json ./
+
+# Install Node.js dependencies
+RUN npm install
+
+# Copy the rest of the frontend application files to the container
+COPY . ./
+# Build your React app (replace 'npm run build' with your actual build command)
+RUN npm run build
+
+# Expose the port that your React app will run on (usually 3000)
+EXPOSE 3000
+
+# Start your React app when the container starts
+CMD ["npm", "start"]
