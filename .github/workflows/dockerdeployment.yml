@@ -17,6 +17,7 @@ jobs:
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Build and Push Docker Image
+        working-directory: ./frontend
         run: |
           docker build -t my-docker-image:latest .
           docker tag my-docker-image:latest ${{ secrets.DOCKERHUB_USERNAME }}/my-docker-image:latest
